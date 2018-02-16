@@ -101,10 +101,7 @@ abstract class Manager
      * @param  string  $driver
      * @return mixed
      */
-    protected function callCustomCreator($driver)
-    {
-        return $this->customCreators[$driver]($this->app);
-    }
+    abstract protected function callCustomCreator(array $driver);
 
     /**
      * Register a custom driver creator Closure.
@@ -113,12 +110,7 @@ abstract class Manager
      * @param  \Closure  $callback
      * @return $this
      */
-    public function extend($driver, Closure $callback)
-    {
-        $this->customCreators[$driver] = $callback;
-
-        return $this;
-    }
+    abstract public function extend($driver, Closure $callback);
 
     /**
      * Get all of the created "drivers".

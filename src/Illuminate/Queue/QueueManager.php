@@ -6,11 +6,12 @@ use Closure;
 use InvalidArgumentException;
 use Illuminate\Contracts\Queue\Factory as FactoryContract;
 use Illuminate\Contracts\Queue\Monitor as MonitorContract;
+use Illuminate\Support\Manager;
 
 /**
  * @mixin \Illuminate\Contracts\Queue\Queue
  */
-class QueueManager implements FactoryContract, MonitorContract
+class QueueManager extends Manager implements FactoryContract, MonitorContract
 {
     /**
      * The application instance.
@@ -212,6 +213,11 @@ class QueueManager implements FactoryContract, MonitorContract
         }
 
         return ['driver' => 'null'];
+    }
+
+    protected function callCustomCreator()
+    {
+
     }
 
     /**
