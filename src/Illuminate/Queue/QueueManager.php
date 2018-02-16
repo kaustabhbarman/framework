@@ -215,7 +215,7 @@ class QueueManager extends Manager implements FactoryContract, MonitorContract
         return ['driver' => 'null'];
     }
 
-    protected function callCustomCreator()
+    protected function callCustomCreator(array $driver)
     {
 
     }
